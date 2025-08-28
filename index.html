@@ -1,160 +1,304 @@
-<meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ViewGrip: Boost Your YouTube Channel Organically</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-body {
-font-family: 'Poppins', sans-serif;
-background-color: #f0f4f8;
-margin: 0;
-padding: 0;
-color: #333;
-overflow-x: hidden;
-}
-.container {
-max-width: 1200px;
-margin: auto;
-padding: 20px;
-}
-header {
-background: linear-gradient(135deg, #0073e6, #00aaff);
-color: white;
-padding: 60px 20px;
-text-align: center;
-position: relative;
-overflow: hidden;
-}
-header h1 {
-font-size: 3em;
-margin: 0;
-animation: fadeInDown 1s ease-out;
-}
-header p {
-font-size: 1.2em;
-margin: 10px 0;
-animation: fadeInUp 1s ease-out 0.5s;
-animation-fill-mode: both;
-}
-.cta-button {
-display: inline-block;
-background-color: #fff;
-color: #0073e6;
-padding: 15px 30px;
-border-radius: 50px;
-text-decoration: none;
-font-weight: 600;
-margin-top: 20px;
-transition: transform 0.3s, box-shadow 0.3s;
-animation: pulse 2s infinite;
-}
-.cta-button:hover {
-transform: scale(1.05);
-box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-section {
-padding: 60px 20px;
-opacity: 0;
-transform: translateY(50px);
-transition: opacity 1s, transform 1s;
-}
-section.visible {
-opacity: 1;
-transform: translateY(0);
-}
-h2 {
-color: #0073e6;
-font-size: 2.5em;
-text-align: center;
-margin-bottom: 40px;
-}
-.features {
-display: flex;
-flex-wrap: wrap;
-justify-content: space-around;
-}
-.feature {
-flex: 1 1 300px;
-background: white;
-padding: 30px;
-margin: 15px;
-border-radius: 15px;
-box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-transition: transform 0.3s;
-animation: fadeIn 1s ease-out;
-}
-.feature:hover {
-transform: translateY(-10px);
-}
-.feature h3 {
-color: #0073e6;
-margin-bottom: 15px;
-}
-.how-it-works ol {
-list-style: none;
-counter-reset: step-counter;
-padding: 0;
-}
-.how-it-works li {
-counter-increment: step-counter;
-margin-bottom: 40px;
-position: relative;
-padding-left: 50px;
-font-size: 1.1em;
-}
-.how-it-works li::before {
-content: counter(step-counter);
-position: absolute;
-left: 0;
-top: -10px;
-background: #0073e6;
-color: white;
-width: 40px;
-height: 40px;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-weight: bold;
-}
-.testimonials {
-background: #fff;
-border-radius: 15px;
-box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-padding: 40px;
-}
-.testimonial {
-margin-bottom: 30px;
-font-style: italic;
-border-left: 5px solid #0073e6;
-padding-left: 20px;
-}
-footer {
-background: #0073e6;
-color: white;
-text-align: center;
-padding: 20px;
-margin-top: 40px;
-}
-@keyframes fadeInDown {
-from { opacity: 0; transform: translateY(-50px); }
-to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInUp {
-from { opacity: 0; transform: translateY(50px); }
-to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-@keyframes pulse {
-0% { transform: scale(1); }
-50% { transform: scale(1.05); }
-100% { transform: scale(1); }
-}
-/* Responsive */
-@media (max-width: 768px) {
-header h1 { font-size: 2.5em; }
-.features { flex-direction: column; }
-}
-</style>
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0073e6, #00aaff);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            animation: fadeInUp 1s ease-out 0.5s;
+            animation-fill-mode: both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #fff;
+            color: #0073e6;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        section {
+            padding: 60px 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s, transform 1s;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: #0073e6;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .feature {
+            flex: 1 1 300px;
+            background: white;
+            padding: 30px;
+            margin: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature h3 {
+            color: #0073e6;
+            margin-bottom: 15px;
+        }
+
+        .how-it-works ol {
+            list-style: none;
+            counter-reset: step-counter;
+            padding: 0;
+        }
+
+        .how-it-works li {
+            counter-increment: step-counter;
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 50px;
+            font-size: 1.1em;
+        }
+
+        .how-it-works li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: -10px;
+            background: #0073e6;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .testimonials {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+
+        .testimonial {
+            margin-bottom: 30px;
+            font-style: italic;
+            border-left: 5px solid #0073e6;
+            padding-left: 20px;
+        }
+
+        footer {
+            background: #0073e6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5em; }
+            .features { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Discover ViewGrip: Skyrocket Your YouTube Growth</h1>
+            <p>Unlock free, organic views, subscribers, likes, and comments to elevate your channel's visibility and engagement.</p>
+            <a href="https://www.viewgrip.net/" target="_blank" class="cta-button">Get Started for Free</a>
+        </div>
+    </header>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About ViewGrip</h2>
+            <p>ViewGrip is a community-driven platform launched in 2014, dedicated to helping YouTube creators grow their channels organically. By connecting creators with real viewers, it ensures authentic engagement without bots or proxies. Whether you're a new YouTuber or an established creator, ViewGrip provides the tools to boost your visibility safely and effectively.</p>
+            <p>Unlike paid services that risk violating YouTube's terms, ViewGrip uses a credit system where users earn points by watching others' videos and redeem them for promotions on their own content. This fosters genuine interactions and sustainable growth.</p>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Organic Engagement</h3>
+                    <p>Get real views, likes, subscribers, and comments from verified users with unique devices and IPs.</p>
+                </div>
+                <div class="feature">
+                    <h3>Geo-Targeted Traffic</h3>
+                    <p>Filter engagement by region for more relevant and targeted interactions.</p>
+                </div>
+                <div class="feature">
+                    <h3>Keyword-Based Search</h3>
+                    <p>Mimic natural YouTube behavior with keyword searches and channel explorations.</p>
+                </div>
+                <div class="feature">
+                    <h3>Free & Easy to Use</h3>
+                    <p>No costs involved—earn credits by participating in the community and watch your channel grow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <ol>
+                <li>Sign up for a free account on ViewGrip.net—no credit card required.</li>
+                <li>Earn credits by watching, liking, and subscribing to other users' videos.</li>
+                <li>Use your credits to create campaigns that promote your own content to real viewers.</li>
+                <li>Monitor growth with real-time analytics and adjust for optimal results.</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2>What Users Are Saying</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>"Amazing service – totally worth it! ViewGrip helped me grow my YouTube channel with no problems whatsoever. Highly recommend!"</p>
+                    <cite>- Trustpilot User</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"I got 620+ subs using ViewGrip. Watch time is a bit low, but subs aren't deleted. Great for starting out."</p>
+                    <cite>- BlackHatWorld User</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"ViewGrip is legit and works. I've gone up a few subscribers at this point."</p>
+                    <cite>- Reddit User</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"In a nutshell, ViewGrip is a solid choice for creators looking to boost their YouTube presence without dropping cash."</p>
+                    <cite>- Reddit User</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="terms" class="terms">
+        <div class="container">
+            <h2>Terms & Conditions</h2>
+            <ul>
+                <li><strong>Task Compliance:</strong> All tasks must align with the instructions provided by ViewGrip to ensure fair and effective use of the platform.</li>
+                <li><strong>No Deletion:</strong> Deleting reviews, posts, or any content related to tasks is strictly prohibited to maintain transparency and authenticity.</li>
+                <li><strong>Original Content:</strong> Every task submitted must be personally created by the user, ensuring originality and adherence to platform guidelines.</li>
+                <li><strong>Review Process:</strong> All submitted tasks are subject to review by the ViewGrip team to ensure quality and compliance with our standards.</li>
+                <li><strong>Account Responsibility:</strong> Users are responsible for maintaining the security of their accounts and ensuring all actions comply with YouTube's terms of service.</li>
+                <li><strong>Fair Use:</strong> Misuse of the credit system, such as attempting to manipulate engagement artificially, may result in account suspension.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright &copy; 2025 Rokon Uzzaman | All rights reserved.</p>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const options = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
