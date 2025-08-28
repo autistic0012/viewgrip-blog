@@ -1,34 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ViewGrip Services</title>
+    <title>ViewGrip: Boost Your YouTube Channel Organically</title>
     <style>
-        body { font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
-        h1, h2 { color: #0073e6; }
-        a { color: #0073e6; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        ul { margin-left: 20px; }
-        footer { text-align: center; font-size: 0.9em; color: #777; margin-top: 20px; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Discover ViewGrip: Elevate Your Digital Presence</h1>
-        <p>ViewGrip is a dynamic platform designed to enhance your online engagement. Whether you're a content creator or a digital marketer, ViewGrip offers tools to boost your visibility and streamline your workflow.</p>
-        <h2>Key Features:</h2>
-        <ul>
-            <li>Intuitive User Interface</li>
-            <li>Advanced Analytics Dashboard</li>
-            <li>Seamless Integration with Popular Platforms</li>
-            <li>Robust Security Measures</li>
-        </ul>
-        <p>Experience the power of ViewGrip by visiting their official website: <a href="https://viewgrip.com" target="_blank">https://viewgrip.com</a></p>
-        <footer>
-            <p>© 2025 Rokon | All rights reserved.</p>
-        </footer>
-    </div>
-</body>
-</html>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+body {
+font-family: 'Poppins', sans-serif;
+background-color: #f0f4f8;
+margin: 0;
+padding: 0;
+color: #333;
+overflow-x: hidden;
+}
+.container {
+max-width: 1200px;
+margin: auto;
+padding: 20px;
+}
+header {
+background: linear-gradient(135deg, #0073e6, #00aaff);
+color: white;
+padding: 60px 20px;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+header h1 {
+font-size: 3em;
+margin: 0;
+animation: fadeInDown 1s ease-out;
+}
+header p {
+font-size: 1.2em;
+margin: 10px 0;
+animation: fadeInUp 1s ease-out 0.5s;
+animation-fill-mode: both;
+}
+.cta-button {
+display: inline-block;
+background-color: #fff;
+color: #0073e6;
+padding: 15px 30px;
+border-radius: 50px;
+text-decoration: none;
+font-weight: 600;
+margin-top: 20px;
+transition: transform 0.3s, box-shadow 0.3s;
+animation: pulse 2s infinite;
+}
+.cta-button:hover {
+transform: scale(1.05);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+section {
+padding: 60px 20px;
+opacity: 0;
+transform: translateY(50px);
+transition: opacity 1s, transform 1s;
+}
+section.visible {
+opacity: 1;
+transform: translateY(0);
+}
+h2 {
+color: #0073e6;
+font-size: 2.5em;
+text-align: center;
+margin-bottom: 40px;
+}
+.features {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+.feature {
+flex: 1 1 300px;
+background: white;
+padding: 30px;
+margin: 15px;
+border-radius: 15px;
+box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+transition: transform 0.3s;
+animation: fadeIn 1s ease-out;
+}
+.feature:hover {
+transform: translateY(-10px);
+}
+.feature h3 {
+color: #0073e6;
+margin-bottom: 15px;
+}
+.how-it-works ol {
+list-style: none;
+counter-reset: step-counter;
+padding: 0;
+}
+.how-it-works li {
+counter-increment: step-counter;
+margin-bottom: 40px;
+position: relative;
+padding-left: 50px;
+font-size: 1.1em;
+}
+.how-it-works li::before {
+content: counter(step-counter);
+position: absolute;
+left: 0;
+top: -10px;
+background: #0073e6;
+color: white;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+}
+.testimonials {
+background: #fff;
+border-radius: 15px;
+box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+padding: 40px;
+}
+.testimonial {
+margin-bottom: 30px;
+font-style: italic;
+border-left: 5px solid #0073e6;
+padding-left: 20px;
+}
+footer {
+background: #0073e6;
+color: white;
+text-align: center;
+padding: 20px;
+margin-top: 40px;
+}
+@keyframes fadeInDown {
+from { opacity: 0; transform: translateY(-50px); }
+to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+from { opacity: 0; transform: translateY(50px); }
+to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+@keyframes pulse {
+0% { transform: scale(1); }
+50% { transform: scale(1.05); }
+100% { transform: scale(1); }
+}
+/* Responsive */
+@media (max-width: 768px) {
+header h1 { font-size: 2.5em; }
+.features { flex-direction: column; }
+}
+</style>
