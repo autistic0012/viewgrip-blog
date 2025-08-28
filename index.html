@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ViewGrip: Ultimate YouTube Growth Platform</title>
+    <title>ViewGrip: Premium YouTube Acceleration Platform</title>
+    <!-- Favicon for professional touch -->
+    <link rel="icon" type="image/png" href="https://via.placeholder.com/32?text=VG">
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for premium icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Slick Slider for testimonials carousel -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-
+        /* Enhanced color palette with subtle refinements for premium feel */
         :root {
             --primary-color: #5b21b6;
             --secondary-color: #d946ef;
@@ -15,9 +23,10 @@
             --text-color: #1e1b4b;
             --header-bg: linear-gradient(135deg, #5b21b6, #8b5cf6);
             --card-bg: #ffffff;
-            --shadow: rgba(0, 0, 0, 0.2);
+            --shadow: rgba(0, 0, 0, 0.15);
             --highlight-color: #a5b4fc;
             --glow: #a5b4fc;
+            --neon-glow: 0 0 15px rgba(91, 33, 182, 0.3);
         }
 
         body.dark-mode {
@@ -28,9 +37,10 @@
             --text-color: #e2e8f0;
             --header-bg: linear-gradient(135deg, #a78bfa, #f472b6);
             --card-bg: #1e293b;
-            --shadow: rgba(255, 255, 255, 0.1);
+            --shadow: rgba(255, 255, 255, 0.08);
             --highlight-color: #6ee7b7;
             --glow: #6ee7b7;
+            --neon-glow: 0 0 15px rgba(167, 139, 250, 0.3);
         }
 
         body {
@@ -40,18 +50,24 @@
             padding: 0;
             color: var(--text-color);
             overflow-x: hidden;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            line-height: 1.7;
         }
 
+        /* Navigation refined for smoother transitions */
         nav {
             background: var(--header-bg);
-            padding: 15px 0;
+            padding: 16px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px var(--shadow);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 24px var(--shadow);
+            transition: box-shadow 0.3s ease;
+        }
+
+        nav:hover {
+            box-shadow: 0 6px 28px var(--neon-glow);
         }
 
         nav .container {
@@ -60,15 +76,24 @@
             align-items: center;
         }
 
+        nav .logo {
+            color: white;
+            font-weight: 800;
+            font-size: 1.7em;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
         nav ul {
             list-style: none;
             display: flex;
             margin: 0;
             padding: 0;
+            transition: max-height 0.4s ease-in-out;
         }
 
         nav li {
-            margin: 0 25px;
+            margin: 0 28px;
         }
 
         nav a {
@@ -77,7 +102,12 @@
             font-weight: 600;
             font-size: 1.1em;
             position: relative;
-            transition: color 0.3s;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--highlight-color);
+            transform: translateY(-2px);
         }
 
         nav a::after {
@@ -85,30 +115,54 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -5px;
+            bottom: -6px;
             left: 0;
-            background: var(--highlight-color);
-            transition: width 0.3s ease;
+            background: var(--accent-color);
+            transition: width 0.4s ease;
         }
 
         nav a:hover::after {
             width: 100%;
         }
 
-        nav a:hover {
-            color: var(--highlight-color);
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            width: 28px;
+            background: white;
+            border-radius: 4px;
+            transition: all 0.4s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
         }
 
         .container {
-            max-width: 1300px;
+            max-width: 1320px;
             margin: auto;
-            padding: 20px;
+            padding: 0 24px;
         }
 
         header {
             background: var(--header-bg);
             color: white;
-            padding: 120px 20px;
+            padding: 140px 24px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -121,21 +175,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: wave 10s infinite linear;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.12), transparent);
+            animation: wave 12s infinite linear;
         }
 
         header h1 {
-            font-size: 4em;
+            font-size: 4.2em;
             margin: 0;
             font-weight: 800;
-            animation: fadeInDown 1.2s ease-out;
+            animation: fadeInDown 1.4s ease-out, neonPulse 2s infinite alternate;
         }
 
         header p {
-            font-size: 1.4em;
-            margin: 15px 0;
-            animation: fadeInUp 1.2s ease-out 0.3s;
+            font-size: 1.5em;
+            margin: 20px 0;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1.4s ease-out 0.4s;
             animation-fill-mode: both;
         }
 
@@ -143,15 +200,15 @@
             display: inline-block;
             background: var(--highlight-color);
             color: var(--primary-color);
-            padding: 18px 50px;
-            border-radius: 50px;
+            padding: 20px 55px;
+            border-radius: 60px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2em;
-            margin-top: 20px;
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-            animation: pulse 2.5s infinite;
-            box-shadow: 0 0 20px var(--glow);
+            font-weight: 700;
+            font-size: 1.3em;
+            margin-top: 25px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+            animation: pulse 2.8s infinite, hoverGlow 1.5s infinite alternate;
+            box-shadow: 0 0 25px var(--glow);
         }
 
         body.dark-mode .cta-button {
@@ -160,44 +217,48 @@
         }
 
         .cta-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px var(--shadow);
+            transform: scale(1.12) rotate(2deg);
+            box-shadow: 0 10px 30px var(--neon-glow);
             background: var(--secondary-color);
         }
 
         .theme-toggle {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 24px;
+            right: 24px;
             background: var(--card-bg);
             border: none;
-            border-radius: 25px;
-            width: 60px;
-            height: 30px;
+            border-radius: 30px;
+            width: 64px;
+            height: 32px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 5px;
-            box-shadow: 0 2px 10px var(--shadow);
-            transition: background 0.3s;
+            padding: 0 6px;
+            box-shadow: 0 3px 12px var(--shadow);
+            transition: background 0.4s ease, box-shadow 0.4s ease;
             z-index: 1000;
         }
 
+        .theme-toggle:hover {
+            box-shadow: 0 4px 16px var(--neon-glow);
+        }
+
         .theme-toggle .theme-icon {
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
             background: var(--primary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
-            transition: transform 0.5s;
+            font-size: 18px;
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
 
         body.dark-mode .theme-toggle .theme-icon {
-            transform: translateX(30px);
+            transform: translateX(32px) rotate(180deg);
         }
 
         body.dark-mode .theme-toggle {
@@ -205,32 +266,32 @@
         }
 
         section {
-            padding: 100px 20px;
+            padding: 110px 24px;
             opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+            transform: translateY(60px) scale(0.98);
+            transition: opacity 1.4s ease-out, transform 1.4s ease-out;
         }
 
         section.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
         h2 {
             color: var(--primary-color);
-            font-size: 3em;
+            font-size: 3.2em;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 55px;
             font-weight: 800;
-            animation: zoomIn 1.2s ease-out;
+            animation: zoomIn 1.4s ease-out, textGlow 2s infinite alternate;
         }
 
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
             position: relative;
-            padding: 40px 0;
+            padding: 45px 0;
         }
 
         .features::before {
@@ -240,26 +301,26 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(90,33,182,0.1), transparent);
+            background: linear-gradient(180deg, rgba(90,33,182,0.08), transparent);
             z-index: -1;
-            animation: subtlePulse 6s infinite;
+            animation: subtlePulse 7s infinite;
         }
 
         .feature {
             background: var(--card-bg);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 5px 25px var(--shadow);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            padding: 35px;
+            border-radius: 24px;
+            box-shadow: 0 6px 28px var(--shadow);
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.6s ease;
             position: relative;
-            perspective: 1000px;
-            transform-style: preserve-3d;
             overflow: hidden;
+            perspective: 1200px;
+            transform-style: preserve-3d;
         }
 
         .feature:hover {
-            transform: translateY(-10px) rotateX(15deg) rotateY(15deg);
-            box-shadow: 0 10px 30px var(--glow);
+            transform: translateY(-12px) rotateX(12deg) rotateY(12deg) scale(1.02);
+            box-shadow: 0 12px 35px var(--neon-glow);
         }
 
         .feature::before {
@@ -269,9 +330,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1));
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.08));
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity 0.4s ease;
+            animation: featureShimmer 4s infinite linear;
         }
 
         .feature:hover::before {
@@ -279,20 +341,21 @@
         }
 
         .feature-icon {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 20px;
-            transition: transform 0.5s ease;
+            font-size: 3em;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            transition: transform 0.6s ease, color 0.4s ease;
         }
 
         .feature:hover .feature-icon {
-            transform: scale(1.2) rotate(360deg);
+            transform: scale(1.15) rotate(360deg);
+            color: var(--secondary-color);
         }
 
         .feature h3 {
             color: var(--primary-color);
-            font-size: 1.6em;
-            margin-bottom: 15px;
+            font-size: 1.7em;
+            margin-bottom: 18px;
             position: relative;
             overflow: hidden;
         }
@@ -303,9 +366,9 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
+            height: 3px;
             background: var(--accent-color);
-            transition: width 0.5s ease;
+            transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .feature:hover h3::after {
@@ -313,18 +376,23 @@
         }
 
         .feature p {
-            animation: slideInRight 0.6s ease-out;
+            animation: slideInRight 0.7s ease-out;
+            transition: color 0.4s ease;
+        }
+
+        .feature:hover p {
+            color: var(--text-color);
         }
 
         .stats {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            margin: 50px 0;
+            margin: 55px 0;
             background: var(--card-bg);
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 5px 25px var(--shadow);
+            padding: 55px;
+            border-radius: 24px;
+            box-shadow: 0 6px 28px var(--shadow);
             position: relative;
             overflow: hidden;
         }
@@ -337,108 +405,143 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle, var(--glow), transparent);
-            animation: glow 4s infinite;
+            animation: glow 4.5s infinite ease-in-out;
         }
 
         .stat {
             text-align: center;
-            flex: 1 1 200px;
-            margin: 20px;
-            animation: bounceIn 1.8s ease-out;
+            flex: 1 1 220px;
+            margin: 24px;
+            animation: bounceIn 2s ease-out;
+            transition: transform 0.4s ease;
+        }
+
+        .stat:hover {
+            transform: scale(1.08);
         }
 
         .stat h4 {
-            font-size: 4em;
+            font-size: 4.2em;
             color: var(--secondary-color);
             margin: 0;
             font-weight: 800;
+            animation: counterSpin 1.5s ease-out;
         }
 
         .stat p {
-            font-size: 1.4em;
+            font-size: 1.5em;
             color: var(--text-color);
         }
 
         .how-it-works {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
         }
 
         .step {
             text-align: center;
-            padding: 40px;
+            padding: 45px;
             background: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: 0 5px 25px var(--shadow);
-            transition: transform 0.5s, box-shadow 0.5s;
+            border-radius: 24px;
+            box-shadow: 0 6px 28px var(--shadow);
+            transition: transform 0.6s ease, box-shadow 0.6s ease;
         }
 
         .step:hover {
-            transform: scale(1.1) rotate(3deg);
-            box-shadow: 0 10px 30px var(--glow);
+            transform: scale(1.12) rotate(4deg);
+            box-shadow: 0 12px 35px var(--neon-glow);
         }
 
         .step-number {
-            font-size: 4em;
+            font-size: 4.2em;
             color: var(--accent-color);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-weight: 800;
-            animation: rotateIn 1.2s ease-out;
+            animation: rotateIn 1.4s ease-out, numberPulse 2s infinite alternate;
+        }
+
+        /* Reviews section enhanced: Carousel without images, more polished layout */
+        .testimonials-section {
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 6px 28px var(--shadow);
+            padding: 55px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(165, 180, 252, 0.05), transparent);
+            z-index: -1;
         }
 
         .testimonials {
-            background: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: 0 5px 25px var(--shadow);
-            padding: 50px;
-            max-height: 600px;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-color) var(--card-bg);
-        }
-
-        .testimonials::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        .testimonials::-webkit-scrollbar-track {
-            background: var(--card-bg);
-            border-radius: 10px;
-        }
-
-        .testimonials::-webkit-scrollbar-thumb {
-            background: var(--primary-color);
-            border-radius: 10px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .testimonial {
-            margin-bottom: 40px;
-            font-style: italic;
-            border-left: 6px solid var(--accent-color);
-            padding-left: 25px;
-            transition: transform 0.5s, opacity 0.5s;
-            animation: fadeInUp 1.2s ease-out;
+            background: linear-gradient(to bottom right, var(--card-bg), rgba(165, 180, 252, 0.1));
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px var(--shadow);
+            margin: 20px 10px;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            animation: fadeInUp 1.4s ease-out;
         }
 
         .testimonial:hover {
-            transform: translateX(15px);
-            opacity: 0.95;
+            transform: translateY(-8px) scale(1.02);
+            opacity: 1;
         }
 
         .stars {
             color: var(--highlight-color);
-            font-size: 1.3em;
+            font-size: 1.6em;
+            margin-bottom: 18px;
+            animation: starTwinkle 1.5s infinite alternate;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            font-size: 1.2em;
             margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .testimonial cite {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: var(--primary-color);
+        }
+
+        .slick-dots li button:before {
+            font-size: 12px;
+            color: var(--primary-color);
+            opacity: 0.8;
+            transition: transform 0.3s ease;
+        }
+
+        .slick-dots li.slick-active button:before {
+            color: var(--accent-color);
+            transform: scale(1.3);
         }
 
         footer {
             background: var(--header-bg);
             color: white;
             text-align: center;
-            padding: 40px;
-            margin-top: 60px;
+            padding: 45px;
+            margin-top: 65px;
             position: relative;
+            box-shadow: 0 -4px 20px var(--shadow);
         }
 
         footer::before {
@@ -448,56 +551,58 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: wave 10s infinite linear;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.12), transparent);
+            animation: wave 12s infinite linear;
         }
 
+        footer p {
+            margin: 0;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        /* Unique high-tech animations */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-60px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(-70px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(60px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-60px); }
-            to { opacity: 1; transform: translateX(0); }
+            from { opacity: 0; transform: translateY(70px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(60px); }
-            to { opacity: 1; transform: translateX(0); }
+            from { opacity: 0; transform: translateX(70px) rotate(5deg); }
+            to { opacity: 1; transform: translateX(0) rotate(0); }
         }
 
         @keyframes zoomIn {
-            from { opacity: 0; transform: scale(0.7); }
-            to { opacity: 1; transform: scale(1); }
+            from { opacity: 0; transform: scale(0.8) rotate(-5deg); }
+            to { opacity: 1; transform: scale(1) rotate(0); }
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-            100% { transform: scale(1); }
+            0% { transform: scale(1); box-shadow: 0 0 20px var(--glow); }
+            50% { transform: scale(1.09); box-shadow: 0 0 30px var(--neon-glow); }
+            100% { transform: scale(1); box-shadow: 0 0 20px var(--glow); }
         }
 
         @keyframes bounceIn {
-            0% { opacity: 0; transform: scale(0.4); }
-            50% { opacity: 0.6; transform: scale(1.1); }
-            100% { opacity: 1; transform: scale(1); }
+            0% { opacity: 0; transform: scale(0.5) translateY(50px); }
+            50% { opacity: 0.7; transform: scale(1.15) translateY(-20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         @keyframes rotateIn {
-            from { opacity: 0; transform: rotate(-45deg); }
-            to { opacity: 1; transform: rotate(0); }
+            from { opacity: 0; transform: rotate(-50deg) scale(0.9); }
+            to { opacity: 1; transform: rotate(0) scale(1); }
         }
 
         @keyframes glow {
-            0% { opacity: 0.3; }
-            50% { opacity: 0.5; }
-            100% { opacity: 0.3; }
+            0% { opacity: 0.25; transform: scale(1); }
+            50% { opacity: 0.45; transform: scale(1.05); }
+            100% { opacity: 0.25; transform: scale(1); }
         }
 
         @keyframes wave {
@@ -506,19 +611,82 @@
         }
 
         @keyframes subtlePulse {
-            0% { opacity: 0.2; }
-            50% { opacity: 0.4; }
-            100% { opacity: 0.2; }
+            0% { opacity: 0.15; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(1.02); }
+            100% { opacity: 0.15; transform: scale(1); }
         }
 
-        /* Responsive */
+        @keyframes neonPulse {
+            0% { text-shadow: 0 0 8px var(--glow); }
+            100% { text-shadow: 0 0 16px var(--neon-glow); }
+        }
+
+        @keyframes hoverGlow {
+            0% { box-shadow: 0 0 20px var(--glow); }
+            100% { box-shadow: 0 0 30px var(--neon-glow); }
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 6px var(--primary-color); }
+            100% { text-shadow: 0 0 12px var(--neon-glow); }
+        }
+
+        @keyframes featureShimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes counterSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes numberPulse {
+            0% { text-shadow: 0 0 8px var(--accent-color); }
+            100% { text-shadow: 0 0 16px var(--neon-glow); }
+        }
+
+        @keyframes starTwinkle {
+            0% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.8; transform: scale(1); }
+        }
+
+        /* Responsive enhancements for mobile */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.8em; }
-            .features, .stats, .how-it-works { flex-direction: column; }
-            nav ul { flex-direction: column; align-items: center; }
-            nav li { margin: 10px 0; }
-            .stat h4 { font-size: 3em; }
-            .testimonials { max-height: 700px; }
+            header { padding: 100px 20px; }
+            header h1 { font-size: 3em; }
+            header p { font-size: 1.3em; }
+            nav ul { 
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--header-bg);
+                padding: 15px 0;
+                box-shadow: 0 4px 20px var(--shadow);
+            }
+            nav ul.active { display: flex; }
+            nav li { margin: 15px 0; text-align: center; }
+            .menu-toggle { display: flex; }
+            .features, .how-it-works { grid-template-columns: 1fr; gap: 24px; }
+            .stats { flex-direction: column; padding: 40px; }
+            .stat { margin: 20px 0; }
+            .testimonial { padding: 25px; margin: 15px 5px; }
+            section { padding: 80px 20px; }
+            h2 { font-size: 2.5em; }
+            .cta-button { padding: 16px 45px; font-size: 1.1em; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            header { padding: 80px 16px; }
+            header h1 { font-size: 2.5em; }
+            .feature { padding: 25px; }
+            .step { padding: 30px; }
+            .testimonials-section { padding: 40px; }
         }
     </style>
 </head>
@@ -529,8 +697,8 @@
 
     <nav>
         <div class="container">
-            <a href="#home" style="color: white; font-weight: bold; font-size: 1.6em;">ViewGrip</a>
-            <ul>
+            <a href="#home" class="logo">ViewGrip</a>
+            <ul id="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#growth">Benefits</a></li>
                 <li><a href="#authentic">Features</a></li>
@@ -538,6 +706,11 @@
                 <li><a href="#testimonials">Reviews</a></li>
                 <li><a href="#terms">Terms</a></li>
             </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -582,32 +755,44 @@
             <h3>Realistic Tools for Explosive Growth</h3>
             <div class="features">
                 <div class="feature">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2">
-                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
+                    <i class="feature-icon fas fa-search"></i>
                     <h3>AI-Powered Search Optimization</h3>
                     <p>Our proprietary algorithm simulates organic keyword searches, driving your videos to the top of YouTube’s search results with precision targeting.</p>
                 </div>
                 <div class="feature">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2">
-                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3" />
-                    </svg>
+                    <i class="feature-icon fas fa-compass"></i>
                     <h3>Channel Discovery Engine</h3>
                     <p>Encourage deep engagement as viewers explore your channel, increasing watch time with multi-video sessions that mimic real user behavior.</p>
                 </div>
                 <div class="feature">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    </svg>
+                    <i class="feature-icon fas fa-map-marker-alt"></i>
                     <h3>Geo-Targeted Engagement</h3>
                     <p>Customize your audience by location, ensuring views and interactions come from your ideal demographic for maximum relevance.</p>
                 </div>
                 <div class="feature">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2">
-                        <path d="M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18" />
-                    </svg>
+                    <i class="feature-icon fas fa-chart-line"></i>
                     <h3>Advanced Analytics Dashboard</h3>
                     <p>Monitor real-time performance metrics with our intuitive dashboard, offering actionable insights to optimize your content strategy.</p>
+                </div>
+                <div class="feature">
+                    <i class="feature-icon fas fa-robot"></i>
+                    <h3>Automated Interaction Engine</h3>
+                    <p>Deploy context-aware systems for natural comments and likes, fostering community growth.</p>
+                </div>
+                <div class="feature">
+                    <i class="feature-icon fas fa-shield-alt"></i>
+                    <h3>Compliance Assurance Module</h3>
+                    <p>Built-in safeguards to ensure all activities align with platform policies.</p>
+                </div>
+                <div class="feature">
+                    <i class="feature-icon fas fa-sync-alt"></i>
+                    <h3>Dynamic Update System</h3>
+                    <p>Automatic adaptations to algorithm changes for sustained performance.</p>
+                </div>
+                <div class="feature">
+                    <i class="feature-icon fas fa-users"></i>
+                    <h3>Community Building Toolkit</h3>
+                    <p>Tools to encourage user collaboration and loyalty.</p>
                 </div>
             </div>
             <p>ViewGrip’s cutting-edge tools deliver authentic engagement to skyrocket your channel safely and effectively. Join now and dominate YouTube!</p>
@@ -970,11 +1155,20 @@
         <p>Copyright &copy; 2025 Rokon Uzzaman | All rights reserved.</p>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
             const icon = document.querySelector('.theme-icon');
             icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            const toggle = document.querySelector('.menu-toggle');
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
         }
 
         const sections = document.querySelectorAll('section');
@@ -1025,7 +1219,32 @@
                 const sectionId = this.getAttribute('href').substring(1);
                 const section = document.getElementById(sectionId);
                 section.scrollIntoView({ behavior: 'smooth' });
+                if (window.innerWidth <= 768) toggleMenu();
             });
+        });
+
+        // Enhanced slick for testimonials with variable width for professional look
+        $('.testimonials').slick({
+            dots: true,
+            infinite: true,
+            speed: 600,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3500,
+            arrows: false,
+            variableWidth: true,
+            centerMode: true,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        variableWidth: false,
+                        centerMode: false
+                    }
+                }
+            ]
         });
     </script>
 </body>
