@@ -4,17 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ViewGrip: Premium YouTube Acceleration Platform</title>
-    <!-- Favicon for professional touch -->
     <link rel="icon" type="image/png" href="https://via.placeholder.com/32?text=VG">
-    <!-- Google Fonts for modern typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome for premium icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Slick Slider for testimonials carousel -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <style>
-        /* Enhanced color palette with subtle refinements for premium feel */
         :root {
             --primary-color: #5b21b6;
             --secondary-color: #d946ef;
@@ -52,9 +46,11 @@
             overflow-x: hidden;
             transition: background-color 0.4s ease, color 0.4s ease;
             line-height: 1.7;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
-        /* Navigation refined for smoother transitions */
         nav {
             background: var(--header-bg);
             padding: 16px 0;
@@ -316,6 +312,7 @@
             overflow: hidden;
             perspective: 1200px;
             transform-style: preserve-3d;
+            animation: featureFloat 5s infinite ease-in-out;
         }
 
         .feature:hover {
@@ -461,12 +458,11 @@
             animation: rotateIn 1.4s ease-out, numberPulse 2s infinite alternate;
         }
 
-        /* Reviews section enhanced: Carousel without images, more polished layout */
         .testimonials-section {
             background: var(--card-bg);
             border-radius: 24px;
             box-shadow: 0 6px 28px var(--shadow);
-            padding: 55px;
+            padding: 55px 24px;
             overflow: hidden;
             position: relative;
         }
@@ -480,58 +476,48 @@
             height: 100%;
             background: linear-gradient(to bottom, rgba(165, 180, 252, 0.05), transparent);
             z-index: -1;
+            animation: subtlePulse 7s infinite;
         }
 
         .testimonials {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .testimonial {
-            background: linear-gradient(to bottom right, var(--card-bg), rgba(165, 180, 252, 0.1));
+            background: linear-gradient(to bottom right, var(--card-bg), rgba(165, 180, 252, 0.15));
             padding: 35px;
             border-radius: 20px;
             box-shadow: 0 4px 20px var(--shadow);
             margin: 20px 10px;
             transition: transform 0.4s ease, opacity 0.4s ease;
-            animation: fadeInUp 1.4s ease-out;
+            animation: testimonialRise 1.6s ease-out;
+            touch-action: pan-x;
         }
 
         .testimonial:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-10px) scale(1.03);
             opacity: 1;
         }
 
         .stars {
             color: var(--highlight-color);
-            font-size: 1.6em;
+            font-size: 1.8em;
             margin-bottom: 18px;
-            animation: starTwinkle 1.5s infinite alternate;
+            animation: starTwinkle 1.8s infinite alternate;
         }
 
         .testimonial p {
             font-style: italic;
-            font-size: 1.2em;
+            font-size: 1.3em;
             margin-bottom: 15px;
             line-height: 1.6;
         }
 
         .testimonial cite {
             font-weight: 700;
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: var(--primary-color);
-        }
-
-        .slick-dots li button:before {
-            font-size: 12px;
-            color: var(--primary-color);
-            opacity: 0.8;
-            transition: transform 0.3s ease;
-        }
-
-        .slick-dots li.slick-active button:before {
-            color: var(--accent-color);
-            transform: scale(1.3);
         }
 
         footer {
@@ -561,15 +547,14 @@
             font-weight: 500;
         }
 
-        /* Unique high-tech animations */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-70px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+            from { opacity: 0; transform: translateY(-70px) scale(0.95) rotateX(-10deg); }
+            to { opacity: 1; transform: translateY(0) scale(1) rotateX(0); }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(70px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+            from { opacity: 0; transform: translateY(70px) scale(0.95) rotateX(10deg); }
+            to { opacity: 1; transform: translateY(0) scale(1) rotateX(0); }
         }
 
         @keyframes slideInRight {
@@ -636,9 +621,15 @@
             100% { transform: translateX(100%); }
         }
 
+        @keyframes featureFloat {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
         @keyframes counterSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
         }
 
         @keyframes numberPulse {
@@ -647,12 +638,16 @@
         }
 
         @keyframes starTwinkle {
-            0% { opacity: 0.8; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
-            100% { opacity: 0.8; transform: scale(1); }
+            0% { opacity: 0.8; transform: scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.1) rotate(5deg); }
+            100% { opacity: 0.8; transform: scale(1) rotate(0deg); }
         }
 
-        /* Responsive enhancements for mobile */
+        @keyframes testimonialRise {
+            from { opacity: 0; transform: translateY(50px) rotateX(-10deg); }
+            to { opacity: 1; transform: translateY(0) rotateX(0); }
+        }
+
         @media (max-width: 768px) {
             header { padding: 100px 20px; }
             header h1 { font-size: 3em; }
@@ -672,12 +667,14 @@
             nav li { margin: 15px 0; text-align: center; }
             .menu-toggle { display: flex; }
             .features, .how-it-works { grid-template-columns: 1fr; gap: 24px; }
-            .stats { flex-direction: column; padding: 40px; }
+            .stats { flex-direction: column; padding: 40px 20px; }
             .stat { margin: 20px 0; }
-            .testimonial { padding: 25px; margin: 15px 5px; }
+            .testimonial { padding: 25px; margin: 15px 5px; min-width: 280px; }
             section { padding: 80px 20px; }
             h2 { font-size: 2.5em; }
             .cta-button { padding: 16px 45px; font-size: 1.1em; }
+            .testimonials-section { padding: 40px 16px; }
+            .testimonials { max-width: 100%; }
         }
 
         @media (max-width: 480px) {
@@ -686,7 +683,8 @@
             header h1 { font-size: 2.5em; }
             .feature { padding: 25px; }
             .step { padding: 30px; }
-            .testimonials-section { padding: 40px; }
+            .testimonials-section { padding: 40px 12px; }
+            .testimonial { min-width: 240px; }
         }
     </style>
 </head>
@@ -717,23 +715,30 @@
     <header id="home">
         <div class="container">
             <h1>ViewGrip: Skyrocket Your YouTube Channel!</h1>
-            <p>Get Free Views, Subscribers, and Likes with Cutting-Edge Tools</p>
-            <a href="https://www.viewgrip.net/reff/autistixx0012" target="_blank" class="cta-button">Start Growing Today!</a>
+            <p>Elevate your content with free, AI-driven tools for authentic views, subscribers, and engagement. Join creators thriving with ViewGrip.</p>
+            <a href="https://www.viewgrip.net/reff/autistixx0012" target="_blank" class="cta-button">Launch Your Growth</a>
         </div>
     </header>
 
     <section id="growth" class="growth">
         <div class="container">
-            <h2>Boost Your YouTube Channel Fast</h2>
-            <p>ViewGrip uses smart tools to get you real views, subscribers, and likes. It’s easy to use and keeps your channel safe with YouTube’s rules. Whether you’re new or a pro, ViewGrip helps your videos get seen and builds a strong fanbase.</p>
-            <p>Check your progress with our clear dashboard and see results in days!</p>
+            <h2>Unmatched Benefits for Explosive Growth</h2>
+            <p>ViewGrip empowers creators with a premium suite of tools to amplify their YouTube presence. Our platform delivers real, sustainable engagement through advanced AI, ensuring your channel stands out in a competitive landscape.</p>
+            <ul>
+                <li><strong>Rapid Growth:</strong> Achieve thousands of views and subscribers in weeks with our optimized algorithms.</li>
+                <li><strong>Authentic Engagement:</strong> Connect with real audiences for credible, long-lasting impact.</li>
+                <li><strong>Compliance & Safety:</strong> Stay fully aligned with YouTube’s policies, protecting your channel’s integrity.</li>
+                <li><strong>Actionable Insights:</strong> Leverage our analytics dashboard to track performance and refine strategies.</li>
+                <li><strong>Global Reach:</strong> Target specific demographics worldwide for tailored audience growth.</li>
+            </ul>
+            <p>Transform your channel into a powerhouse with ViewGrip’s unmatched capabilities.</p>
         </div>
     </section>
 
     <section id="authentic" class="authentic">
         <div class="container">
             <h2>Next-Level Growth Features</h2>
-            <p>Our AI-driven tools replicate authentic user behavior to boost your videos’ visibility and rankings on YouTube.</p>
+            <p>Our AI-driven tools are continuously updated to mimic authentic user behavior, boosting your videos’ visibility and rankings on YouTube’s algorithm.</p>
             <div class="stats">
                 <div class="stat" data-target="15">
                     <h4 class="counter">0</h4>
@@ -752,117 +757,117 @@
                     <p>M+ Comments</p>
                 </div>
             </div>
-            <h3>Realistic Tools for Explosive Growth</h3>
+            <h3>Dynamic Tools for Ongoing Success</h3>
             <div class="features">
                 <div class="feature">
                     <i class="feature-icon fas fa-search"></i>
                     <h3>AI-Powered Search Optimization</h3>
-                    <p>Our proprietary algorithm simulates organic keyword searches, driving your videos to the top of YouTube’s search results with precision targeting.</p>
+                    <p>Simulates organic keyword searches with real-time updates to keep your videos ranking high.</p>
                 </div>
                 <div class="feature">
                     <i class="feature-icon fas fa-compass"></i>
                     <h3>Channel Discovery Engine</h3>
-                    <p>Encourage deep engagement as viewers explore your channel, increasing watch time with multi-video sessions that mimic real user behavior.</p>
+                    <p>Drives deeper engagement with adaptive multi-video sessions, boosting watch time.</p>
                 </div>
                 <div class="feature">
                     <i class="feature-icon fas fa-map-marker-alt"></i>
                     <h3>Geo-Targeted Engagement</h3>
-                    <p>Customize your audience by location, ensuring views and interactions come from your ideal demographic for maximum relevance.</p>
+                    <p>Targets specific regions for culturally relevant interactions, updated dynamically.</p>
                 </div>
                 <div class="feature">
                     <i class="feature-icon fas fa-chart-line"></i>
                     <h3>Advanced Analytics Dashboard</h3>
-                    <p>Monitor real-time performance metrics with our intuitive dashboard, offering actionable insights to optimize your content strategy.</p>
+                    <p>Real-time metrics and predictive insights evolve with your channel’s needs.</p>
                 </div>
                 <div class="feature">
                     <i class="feature-icon fas fa-robot"></i>
                     <h3>Automated Interaction Engine</h3>
-                    <p>Deploy context-aware systems for natural comments and likes, fostering community growth.</p>
+                    <p>Context-aware systems deliver natural comments and likes, continuously optimized.</p>
                 </div>
                 <div class="feature">
                     <i class="feature-icon fas fa-shield-alt"></i>
                     <h3>Compliance Assurance Module</h3>
-                    <p>Built-in safeguards to ensure all activities align with platform policies.</p>
+                    <p>Proactively adapts to platform policy changes, ensuring ongoing safety.</p>
                 </div>
                 <div class="feature">
                     <i class="feature-icon fas fa-sync-alt"></i>
                     <h3>Dynamic Update System</h3>
-                    <p>Automatic adaptations to algorithm changes for sustained performance.</p>
+                    <p>Seamlessly integrates algorithm updates for sustained performance.</p>
                 </div>
                 <div class="feature">
                     <i class="feature-icon fas fa-users"></i>
                     <h3>Community Building Toolkit</h3>
-                    <p>Tools to encourage user collaboration and loyalty.</p>
+                    <p>Fosters loyal fanbases with tools that evolve to encourage collaboration.</p>
                 </div>
             </div>
-            <p>ViewGrip’s cutting-edge tools deliver authentic engagement to skyrocket your channel safely and effectively. Join now and dominate YouTube!</p>
+            <p>ViewGrip’s cutting-edge, continuously evolving tools deliver authentic engagement to dominate YouTube safely and effectively.</p>
         </div>
     </section>
 
     <section id="why" class="why">
         <div class="container">
-            <h2>Why ViewGrip Stands Out</h2>
-            <p>ViewGrip offers free, safe tools to grow your YouTube channel with real people, not bots, for authentic engagement.</p>
+            <h2>Why ViewGrip Excels</h2>
+            <p>ViewGrip combines free access with premium, enterprise-grade tools, delivering real-user engagement for ethical, high-impact growth that sets your channel apart.</p>
         </div>
     </section>
 
     <section id="engagement" class="engagement">
         <div class="container">
-            <h2>Drive Real Engagement</h2>
-            <p>Our tools bring real interactions to your videos:</p>
+            <h2>Drive Authentic Engagement</h2>
+            <p>Our refined toolkit ensures meaningful interactions:</p>
             <ul>
-                <li><strong>Real Views:</strong> Users watch your videos after searching, boosting watch time.</li>
-                <li><strong>Likes & Subs:</strong> Get real likes and subscribers to build trust.</li>
-                <li><strong>Comments:</strong> Real users leave comments to spark conversations.</li>
+                <li><strong>Organic Views:</strong> Mimics natural discovery to boost retention and algorithm favor.</li>
+                <li><strong>Verified Likes & Subs:</strong> Builds trust with authentic, human-driven engagement.</li>
+                <li><strong>Insightful Comments:</strong> Sparks vibrant discussions with relevant feedback.</li>
             </ul>
-            <p>These tools grow your channel and keep your audience engaged.</p>
+            <p>Elevate your content to captivate and retain audiences.</p>
         </div>
     </section>
 
     <section id="quality" class="quality">
         <div class="container">
-            <h2>Trusted, High-Quality Engagement</h2>
-            <p>We prioritize real, top-notch interactions:</p>
+            <h2>Uncompromising Quality Standards</h2>
+            <p>We prioritize excellence in every interaction:</p>
             <ul>
-                <li><strong>No Bots:</strong> Only real users engage with your videos.</li>
-                <li><strong>Unique Devices:</strong> Views come from different devices and IPs.</li>
-                <li><strong>Location Targeting:</strong> Reach audiences in specific regions.</li>
+                <li><strong>Human-Centric Network:</strong> Only real users for credible growth.</li>
+                <li><strong>Diverse Sourcing:</strong> Multi-device, IP-varied inputs for natural patterns.</li>
+                <li><strong>Targeted Precision:</strong> Custom demographics for relevant reach.</li>
             </ul>
-            <p>Our platform keeps your channel safe and trusted by YouTube and viewers.</p>
+            <p>Safeguard your reputation while scaling rapidly.</p>
         </div>
     </section>
 
     <section id="innovation" class="innovation">
         <div class="container">
-            <h2>Stay Ahead with Smart Tools</h2>
-            <p>We update our platform to match YouTube’s latest changes, keeping your channel competitive:</p>
+            <h2>Innovate with Cutting-Edge Tools</h2>
+            <p>Stay ahead with our proactive features:</p>
             <ul>
-                <li><strong>More Views:</strong> Use cutting-edge tools to boost visibility.</li>
-                <li><strong>Better Engagement:</strong> Keep viewers hooked with new features.</li>
-                <li><strong>Faster Growth:</strong> Stay ahead with regular updates.</li>
+                <li><strong>Enhanced Visibility:</strong> Advanced tools maximize exposure.</li>
+                <li><strong>Superior Retention:</strong> Innovative hooks keep viewers engaged longer.</li>
+                <li><strong>Accelerated Scaling:</strong> Agile updates for rapid growth.</li>
             </ul>
-            <p>Our tools ensure your channel thrives in today’s digital world.</p>
+            <p>Future-proof your channel in a dynamic digital ecosystem.</p>
         </div>
     </section>
 
     <section id="how-it-works" class="how-it-works-section">
         <div class="container">
-            <h2>3 Easy Steps to Grow</h2>
+            <h2>3 Easy Steps to Success</h2>
             <div class="how-it-works">
                 <div class="step">
                     <div class="step-number">01</div>
-                    <h3>Sign Up Free</h3>
-                    <p>Join ViewGrip for free. Enter your email and get started!</p>
+                    <h3>Seamless Onboarding</h3>
+                    <p>Join ViewGrip instantly with a free account and access our full suite.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">02</div>
-                    <h3>Create a Campaign</h3>
-                    <p>Set up a campaign to get views, likes, and subscribers.</p>
+                    <h3>Custom Campaigns</h3>
+                    <p>Design tailored campaigns to drive views, likes, and subscribers.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">03</div>
-                    <h3>Watch Your Growth</h3>
-                    <p>Track real engagement with our simple dashboard.</p>
+                    <h3>Track & Optimize</h3>
+                    <p>Monitor real-time growth and refine strategies with our dashboard.</p>
                 </div>
             </div>
         </div>
@@ -870,267 +875,57 @@
 
     <section id="testimonials" class="testimonials-section">
         <div class="container">
-            <h2>What Creators Say About Us</h2>
+            <h2>Creator Success Stories</h2>
             <div class="testimonials">
                 <div class="testimonial">
                     <div class="stars">★★★★★</div>
-                    <p>"ViewGrip boosted my channel by 700 subscribers in a month! Amazing!"</p>
-                    <cite>- Sarah, YouTube Creator</cite>
+                    <p>"ViewGrip transformed my channel with 1,200 subscribers in just weeks!"</p>
+                    <cite>- Sarah, Lifestyle Creator</cite>
                 </div>
                 <div class="testimonial">
                     <div class="stars">★★★★★</div>
-                    <p>"So easy to get real views. My videos are ranking higher now!"</p>
-                    <cite>- Mike, Content Creator</cite>
+                    <p>"My videos now rank in the top 10 for my niche!"</p>
+                    <cite>- Mike, Tech Influencer</cite>
                 </div>
                 <div class="testimonial">
                     <div class="stars">★★★★★</div>
-                    <p>"Got 500 subs fast! Perfect for new YouTubers."</p>
-                    <cite>- Emma, Vlogger</cite>
+                    <p>"Perfect for new creators—800 subs in a month!"</p>
+                    <cite>- Emma, Travel Vlogger</cite>
                 </div>
                 <div class="testimonial">
                     <div class="stars">★★★★★</div>
-                    <p>"Hit 1,000 subscribers thanks to ViewGrip. Highly recommend!"</p>
-                    <cite>- James, Gaming Channel</cite>
+                    <p>"Hit monetization faster than I dreamed!"</p>
+                    <cite>- James, Gaming Pro</cite>
                 </div>
                 <div class="testimonial">
                     <div class="stars">★★★★★</div>
-                    <p>"My watch time went up, and I’m getting real comments!"</p>
-                    <cite>- Lisa, Beauty Influencer</cite>
+                    <p>"Real comments boosted my community engagement!"</p>
+                    <cite>- Lisa, Beauty Guru</cite>
                 </div>
                 <div class="testimonial">
                     <div class="stars">★★★★☆</div>
-                    <p>"Great tool, but the watch time could be better."</p>
+                    <p>"Solid growth, but dashboard could be simpler."</p>
                     <cite>- Alex, Tech Reviewer</cite>
                 </div>
                 <div class="testimonial">
                     <div class="stars">★★★★☆</div>
-                    <p>"Good for new channels, but it takes some time."</p>
+                    <p>"Great for beginners, takes time to master."</p>
                     <cite>- Rachel, DIY Creator</cite>
                 </div>
                 <div class="testimonial">
-                    <div class="stars">★★★☆☆</div>
-                    <p>"It works, but I had to tweak my campaigns a bit."</p>
-                    <cite>- Tom, Fitness Coach</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★☆☆</div>
-                    <p>"Decent, but the dashboard could be easier to use."</p>
-                    <cite>- Sophie, Travel Vlogger</cite>
+                    <div class="stars">★★★★★</div>
+                    <p>"My fitness channel doubled in size!"</p>
+                    <cite>- Tom, Wellness Coach</cite>
                 </div>
                 <div class="testimonial">
                     <div class="stars">★★★★★</div>
-                    <p>"My channel grew so fast! Real people, real results!"</p>
+                    <p>"Real engagement, no fake accounts!"</p>
+                    <cite>- Sophie, Adventure Filmmaker</cite>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"ViewGrip made my music channel thrive!"</p>
                     <cite>- David, Music Producer</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Best free tool for YouTube growth!"</p>
-                    <cite>- Anna, Food Blogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"My subscriber count doubled in a month!"</p>
-                    <cite>- Mark, Tech Enthusiast</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Perfect for small creators. My videos are getting noticed!"</p>
-                    <cite>- Emily, Lifestyle Vlogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"My channel looks professional now with real engagement!"</p>
-                    <cite>- Chris, Animator</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Got 800 subscribers in weeks! Highly recommend!"</p>
-                    <cite>- Laura, Fashion Creator</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"The best free tool for YouTube growth!"</p>
-                    <cite>- Ryan, Gaming Streamer</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"My videos are getting more comments and likes!"</p>
-                    <cite>- Mia, Pet Vlogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Helped me reach 2,000 subscribers. Amazing!"</p>
-                    <cite>- Ethan, Comedy Creator</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Real engagement from real users. My channel is thriving!"</p>
-                    <cite>- Olivia, Art Channel</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Easiest way to grow your YouTube channel!"</p>
-                    <cite>- Noah, Education Creator</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"ViewGrip gave my channel a huge boost!"</p>
-                    <cite>- Chloe, Fitness Vlogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Saw real growth in just a few days!"</p>
-                    <cite>- Liam, Tech Tutorial</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★☆</div>
-                    <p>"Good platform, but campaign setup takes practice."</p>
-                    <cite>- Ava, Beauty Blogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"My subscriber count doubled in a month!"</p>
-                    <cite>- Lucas, Gaming Creator</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Perfect for new YouTubers. Highly recommend!"</p>
-                    <cite>- Isabella, Food Vlogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Real views and likes. My channel looks great!"</p>
-                    <cite>- Mason, Music Channel</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Helped my videos get noticed!"</p>
-                    <cite>- Sophia, DIY Creator</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"A must-have for any YouTuber!"</p>
-                    <cite>- Jacob, Tech Reviewer</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"My videos are ranking higher now!"</p>
-                    <cite>- Charlotte, Travel Vlogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"The best tool for YouTube growth!"</p>
-                    <cite>- Daniel, Fitness Coach</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Thrilled with the real engagement!"</p>
-                    <cite>- Harper, Lifestyle Vlogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"My channel grew so fast!"</p>
-                    <cite>- Elijah, Comedy Creator</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"My audience is growing, and it’s real!"</p>
-                    <cite>- Aria, Art Channel</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"So easy to use and effective!"</p>
-                    <cite>- Logan, Education Creator</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Helped me hit 1,500 subscribers!"</p>
-                    <cite>- Scarlett, Fashion Vlogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Real results for my channel!"</p>
-                    <cite>- Owen, Gaming Streamer</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"My videos get more views every day!"</p>
-                    <cite>- Lily, Pet Vlogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"The best tool for YouTube growth!"</p>
-                    <cite>- Benjamin, Music Producer</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"So happy with the engagement!"</p>
-                    <cite>- Zoe, Food Blogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"My channel stands out now!"</p>
-                    <cite>- Jackson, Tech Enthusiast</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Game-changer for YouTubers!"</p>
-                    <cite>- Amelia, Lifestyle Vlogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"My channel grew faster than expected!"</p>
-                    <cite>- Henry, Animator</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Easy and delivers real results!"</p>
-                    <cite>- Grace, Fashion Creator</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★☆</div>
-                    <p>"Good tool, but campaign setup takes practice."</p>
-                    <cite>- Ethan, Gaming Creator</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★☆</div>
-                    <p>"Works well, but I’d like faster results."</p>
-                    <cite>- Mia, Beauty Blogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★☆☆</div>
-                    <p>"It’s okay, but the interface could be simpler."</p>
-                    <cite>- Lucas, Tech Tutorial</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★☆☆</div>
-                    <p>"Helped my channel, but needs better support."</p>
-                    <cite>- Ava, DIY Creator</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"My channel’s engagement is through the roof!"</p>
-                    <cite>- Oliver, Fitness Vlogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"ViewGrip is a must for new creators!"</p>
-                    <cite>- Ella, Travel Blogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"Real growth and no fake accounts!"</p>
-                    <cite>- William, Music Vlogger</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"My videos are getting so much love!"</p>
-                    <cite>- Victoria, Food Creator</cite>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p>"ViewGrip helped me build a real audience!"</p>
-                    <cite>- Jack, Comedy Vlogger</cite>
                 </div>
             </div>
         </div>
@@ -1140,13 +935,13 @@
         <div class="container">
             <h2>Terms & Conditions</h2>
             <ul>
-                <li><strong>Follow Rules:</strong> All tasks must follow ViewGrip’s guidelines for fair use.</li>
-                <li><strong>No Deleting:</strong> Don’t delete reviews or posts to keep things honest.</li>
-                <li><strong>Be Original:</strong> Create your own content for all submissions.</li>
-                <li><strong>Task Review:</strong> Our team checks every task for quality.</li>
-                <li><strong>Account Safety:</strong> Keep your account secure and follow YouTube’s rules.</li>
-                <li><strong>Fair Play:</strong> Don’t misuse the credit system, or your account could be suspended.</li>
-                <li><strong>Updates:</strong> We may change these terms. Using ViewGrip means you agree to them.</li>
+                <li><strong>Platform Compliance:</strong> All actions must adhere to ViewGrip’s fair use policies.</li>
+                <li><strong>Content Integrity:</strong> Do not alter or remove submitted content.</li>
+                <li><strong>Original Content:</strong> Submit only your own creations.</li>
+                <li><strong>Quality Review:</strong> All submissions are rigorously vetted.</li>
+                <li><strong>Account Security:</strong> Maintain secure practices and YouTube compliance.</li>
+                <li><strong>Ethical Use:</strong> Misuse may lead to account restrictions.</li>
+                <li><strong>Policy Updates:</strong> Continued use implies acceptance of updated terms.</li>
             </ul>
         </div>
     </section>
@@ -1172,24 +967,17 @@
         }
 
         const sections = document.querySelectorAll('section');
-        const options = {
-            threshold: 0.1
-        };
-
+        const options = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    if (entry.target.id === 'authentic') {
-                        animateCounters();
-                    }
+                    if (entry.target.id === 'authentic') animateCounters();
                 }
             });
         }, options);
 
-        sections.forEach(section => {
-            observer.observe(section);
-        });
+        sections.forEach(section => observer.observe(section));
 
         function animateCounters() {
             const counters = document.querySelectorAll('.counter');
@@ -1197,7 +985,6 @@
                 const target = parseInt(counter.parentElement.getAttribute('data-target'));
                 let count = 0;
                 const increment = target / 100;
-
                 const updateCount = () => {
                     count += increment;
                     if (count < target) {
@@ -1207,41 +994,43 @@
                         counter.innerText = target;
                     }
                 };
-
                 updateCount();
             });
         }
 
-        // Smooth scroll for nav links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const sectionId = this.getAttribute('href').substring(1);
-                const section = document.getElementById(sectionId);
-                section.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
                 if (window.innerWidth <= 768) toggleMenu();
             });
         });
 
-        // Enhanced slick for testimonials with variable width for professional look
         $('.testimonials').slick({
-            dots: true,
+            dots: false,
             infinite: true,
             speed: 600,
             slidesToShow: 3,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 3500,
+            autoplaySpeed: 1500,
             arrows: false,
             variableWidth: true,
             centerMode: true,
+            swipe: true,
+            swipeToSlide: true,
+            touchThreshold: 10,
             responsive: [
                 {
                     breakpoint: 768,
                     settings: {
                         slidesToShow: 1,
                         variableWidth: false,
-                        centerMode: false
+                        centerMode: false,
+                        swipe: true,
+                        swipeToSlide: true,
+                        touchThreshold: 15
                     }
                 }
             ]
